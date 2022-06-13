@@ -6,17 +6,22 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Home, ShoppingCartRounded } from '@mui/icons-material';
+import { Home, ShoppingCartRounded, SkateboardingSharp } from '@mui/icons-material';
+import CartWidget from './CartWidget';
 
-export default function ButtonAppBar() {
+export default function NavBar({cantidad}) {
+
+
+
   return (
     
       <AppBar position="fixed" sx={{ bgcolor: "green" }}>
         <Toolbar>
         <IconButton color="inherit">
-            <ShoppingCartRounded></ShoppingCartRounded>
+            <SkateboardingSharp></SkateboardingSharp>
         </IconButton>
         <Button color="inherit">INICIO</Button>
+       
           <Typography  component="div" sx={{ flexGrow: 1 }}>
            PRODUCTOS
           </Typography>          
@@ -27,6 +32,9 @@ export default function ButtonAppBar() {
             PEDIDOS
           </Typography>
           <Button color="inherit">LOGIN</Button>
+
+          <CartWidget cantidad={cantidad} />
+
         </Toolbar>
       </AppBar>
     
