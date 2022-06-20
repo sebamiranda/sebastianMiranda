@@ -138,7 +138,7 @@ const ResponsiveAppBar = ({cantidad}) => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <FingerprintIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -168,8 +168,9 @@ const ResponsiveAppBar = ({cantidad}) => {
               </Button>
             ))}
           </Box>
-
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>  
           <CartWidget cantidad={cantidad} />
+          </Box>
           
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Configuraciones">
