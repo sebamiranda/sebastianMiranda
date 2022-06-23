@@ -33,7 +33,7 @@ function sumar(){
   return (
     <div>
     <Card sx={{ maxWidth: 200 }}>
-      <CardMedia
+      {/* <CardMedia
         component="img"
         height="50"
         image=""
@@ -47,7 +47,7 @@ function sumar(){
          Descripcion
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions> */}
       
       <Grid container>
           <Grid item xs={12}>
@@ -69,7 +69,7 @@ function sumar(){
             </Box>
           </Grid>
       </Grid>
-      </CardActions>
+      {/* </CardActions> */}
     </Card>
     </div>
   )

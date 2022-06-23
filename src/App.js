@@ -23,7 +23,7 @@ function App() {
         
        <NavBar cantidad={cantidad}></NavBar>
        <ItemListContainer greeting={greeting}/>
-       <ItemCount stock ={stock} initial={initial} onAdd={onAdd}/>
+       {/* <ItemCount stock ={stock} initial={initial} onAdd={onAdd}/> */}
        
       </header>
     </div>
