@@ -1,8 +1,11 @@
 
+//@ts-check
 import './App.css';
 import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar/NavBar'
+import NavBar from './components/NavBar/NavBar';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -20,10 +23,23 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <BrowserRouter>
+        <NavBar cantidad={cantidad}></NavBar>
+
+       
+            <Routes>
+                  <Route path='/' element={<ItemListContainer greeting={greeting}/>} />
+                  <Route path='/category/:idCategory' element={<ItemListContainer greeting={greeting}/>} />
+                  <Route path='/item/:idItem'  element={< ItemDetailContainer/>} />
+            </Routes>
+         
+       {/* <ItemListContainer greeting={greeting}/>
+       <ItemCount stock ={stock} initial={initial} onAdd={onAdd}/>
+      < ItemDetailContainer/> */}
         
-       <NavBar cantidad={cantidad}></NavBar>
-       <ItemListContainer greeting={greeting}/>
-       {/* <ItemCount stock ={stock} initial={initial} onAdd={onAdd}/> */}
+        
+        </BrowserRouter>
+      <div >FOOTER</div>
        
       </header>
     </div>

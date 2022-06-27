@@ -1,45 +1,5 @@
-// import * as React from 'react';
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import { Home, ShoppingCartRounded, SkateboardingSharp } from '@mui/icons-material';
-// import CartWidget from './CartWidget';
 
-// export default function NavBar({cantidad}) {
-
-
-
-//   return (
-    
-//       <AppBar position="fixed" sx={{ bgcolor: "green" }}>
-//         <Toolbar>
-//         <IconButton color="inherit">
-//             <SkateboardingSharp></SkateboardingSharp>
-//         </IconButton>
-//         <Button color="inherit">INICIO</Button>
-       
-//           <Typography  component="div" sx={{ flexGrow: 1 }}>
-//            PRODUCTOS
-//           </Typography>          
-//           <Typography  component="div" sx={{ flexGrow: 1 }}>
-//             OFERTAS
-//           </Typography>
-//           <Typography  component="div" sx={{ flexGrow: 1 }}>
-//             PEDIDOS
-//           </Typography>
-//           <Button color="inherit">LOGIN</Button>
-
-//           <CartWidget cantidad={cantidad} />
-
-//         </Toolbar>
-//       </AppBar>
-    
-//   );
-// }
+//@ts-check
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -56,8 +16,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
-const pages = ['Productos', 'Ofertas', 'Novedades'];
+const pages = ['Categorias', 'Descripcion', 'Novedades'];
 const settings = ['Perfil', 'Logout'];
 
 const ResponsiveAppBar = ({cantidad}) => {
@@ -78,6 +39,25 @@ const ResponsiveAppBar = ({cantidad}) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+
+
+
+
+
+
 
   return (
     <AppBar position="static" sx={{ bgcolor: "#4caf50" }}>
@@ -131,11 +111,48 @@ const ResponsiveAppBar = ({cantidad}) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+               {/* // {pages.map((page) => ( */}
+                <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+
+                    <Link style={{textDecoration:"none", color:"black"}} to={'/'}>
+                    PRODUCTOS
+                    </Link>
+
+
+                  </Typography>
                 </MenuItem>
-              ))}
+                <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+
+                    <Link style={{textDecoration:"none", color:"black"}} to={'category/Herramientas'}>
+                    HERRAMIENTAS
+                    </Link>
+
+
+                  </Typography>
+                </MenuItem>
+                <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+
+                    <Link style={{textDecoration:"none", color:"black"}} to={'/category/Pinturas'}>
+                    PINTURAS
+                    </Link>
+
+
+                  </Typography>
+                </MenuItem>
+                <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+
+                    <Link style={{textDecoration:"none", color:"black"}} to={'/category/Accesorios'}>
+                    ACCESORIOS
+                    </Link>
+
+
+                  </Typography>
+                </MenuItem>
+             {/* // ))} */}
             </Menu>
           </Box>
           <FingerprintIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -143,7 +160,7 @@ const ResponsiveAppBar = ({cantidad}) => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -158,15 +175,69 @@ const ResponsiveAppBar = ({cantidad}) => {
             INICIO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {/* {pages.map((page) => ( */}
               <Button
-                key={page}
+               
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link style={{textDecoration:"none", color:"white"}} to={'/'}>
+                PRODUCTOS
+                    </Link>
+                    
               </Button>
-            ))}
+              {/* <Button
+               
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link style={{textDecoration:"none", color:"white"}} to={'/categorias'}>
+                CATEGORIAS
+                    </Link>
+                    
+              </Button> */}
+
+              <Button
+              sx={{ my: 2, color: 'white', display: 'block' }}
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+       
+      >
+        CATEGORIAS
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>
+        <Link style={{textDecoration:"none", color:"black"}} to={'/category/Herramientas'}>
+                HERRAMIENTAS
+                    </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+        <Link style={{textDecoration:"none", color:"black"}} to={'/category/Pinturas'}>
+                PINTURAS
+                    </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+        <Link style={{textDecoration:"none", color:"black"}} to={'/category/Accesorios'}>
+               ACCESORIOS
+                    </Link>
+        </MenuItem>
+      </Menu>
+
+
+
+
+            {/* ))} */}
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>  
           <CartWidget cantidad={cantidad} />

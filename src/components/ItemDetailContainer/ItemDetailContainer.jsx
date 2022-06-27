@@ -1,13 +1,10 @@
-//@ts-check
-import React, {useEffect, useState} from 'react';
-import ItemList from '../ItemList/ItemList';
+import React, {useEffect, useState}from 'react';
+import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
 
-export default function ItemListContainer({greeting}) {
-
-  const [productoList, setProductoList] = useState([]);
-  let { idCategory } = useParams();
-  console.log(idCategory)
+export default function ItemDetailContainer() {
+    const [productoList, setProductoList] = useState({});
+    let {idItem} =useParams();
 
 useEffect(() => {
 
@@ -23,32 +20,20 @@ useEffect(() => {
       
     },2000);
   }).then((res)=>{
-   // let idCategory ="Accesorios"
-   //console.log(idCategory)
-    if(!idCategory){
-      setProductoList(res)
-    }else{
-      let productoListFiltrado = res.filter((elemento) => elemento.category == idCategory)
-      console.log(productoListFiltrado)
-      setProductoList(productoListFiltrado)
-    }
-    
+    let aux = res.find((elemento) => elemento.id == idItem)
+  //  console.log(aux )
+  setProductoList(aux)
+  //console.log(productoList)
 
   })
 
   
-}, [idCategory])
-
-
+}, [idItem])
 
 
 
   return (
-    <>
-    
-    <span>{greeting}</span>
-    <ItemList productoList={productoList} />
-    
-    </>
+    //console.log(productoList)
+   <ItemDetail productoList={productoList} />
   )
 }
