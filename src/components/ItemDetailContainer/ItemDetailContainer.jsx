@@ -1,9 +1,13 @@
 import React, {useEffect, useState}from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 
 export default function ItemDetailContainer() {
     const [productoList, setProductoList] = useState({});
+    const [loading,setLoading] = useState(true);
     let {idItem} =useParams();
 
 useEffect(() => {
@@ -24,7 +28,7 @@ useEffect(() => {
   //  console.log(aux )
   setProductoList(aux)
   //console.log(productoList)
-
+  setLoading(false)
   })
 
   
@@ -34,6 +38,14 @@ useEffect(() => {
 
   return (
     //console.log(productoList)
+    <>
+    {loading ?
+      <Box sx={{ display: 'flex' }}>
+      <CircularProgress  color="inherit" />
+    </Box> :    
+
    <ItemDetail productoList={productoList} />
+   }
+    </>
   )
 }

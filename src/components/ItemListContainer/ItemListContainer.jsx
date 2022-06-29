@@ -2,10 +2,15 @@
 import React, {useEffect, useState} from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import { Grid } from '@mui/material';
+
 
 export default function ItemListContainer({greeting}) {
 
   const [productoList, setProductoList] = useState([]);
+  const [loading,setLoading] = useState(true);
   let { idCategory } = useParams();
   console.log(idCategory)
 
@@ -27,12 +32,14 @@ useEffect(() => {
    //console.log(idCategory)
     if(!idCategory){
       setProductoList(res)
+      
     }else{
       let productoListFiltrado = res.filter((elemento) => elemento.category == idCategory)
       console.log(productoListFiltrado)
       setProductoList(productoListFiltrado)
+     
     }
-    
+    setLoading(false)
 
   })
 
@@ -44,11 +51,16 @@ useEffect(() => {
 
 
   return (
-    <>
     
-    <span>{greeting}</span>
-    <ItemList productoList={productoList} />
+    <Grid container justifyContent="center">
+    {/* <span>{greeting}</span> */}
     
-    </>
+    {loading ?
+          <Box sx={{ display: 'flex' }}>
+              < CircularProgress  color="inherit" />
+          </Box> :
+          <ItemList  productoList={productoList} />        
+    }
+</Grid>
   )
 }

@@ -47,7 +47,7 @@ function sumar(){
       </CardContent>*/}
       <CardActions> 
       
-      <Grid container>
+      <Grid container justifyContent="center">
           <Grid item xs={12}>
           <Box sx={{ '& > :not(style)': { m: 1 } }}>
               <Fab color="primary" size='small' onClick={()=>restar()}>

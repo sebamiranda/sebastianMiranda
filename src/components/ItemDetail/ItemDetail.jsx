@@ -29,6 +29,7 @@ export default function ItemDetail({productoList}) {
             image={productoList.pictureURL}
             alt=""
           />
+
           <CardContent>
                 <Typography variant="h3" gutterBottom component="div">
                     {productoList.title}
@@ -40,14 +41,16 @@ export default function ItemDetail({productoList}) {
                     Precio: $ {productoList.price}
                 </Typography>  
           </CardContent>
-        <CardActions>      
-          <Grid container>          
-            <Grid item xs={12} >    
-              <Box >           
+
+        <CardActions >      
+                <Grid container justifyContent="center">
+
                 <ItemCount stock ={productoList.stock} initial={1} onAdd={onAdd}/> 
-              </Box>
-            </Grid>
-          </Grid>
+                </Grid>
+                     
+              
+            
+          
         </CardActions>
       </Card>
 
