@@ -1,20 +1,30 @@
-import { Grid } from '@mui/material';
-import { Box } from '@mui/system';
-import React from 'react';
+import { Button, Grid } from '@mui/material';
+
+import React, { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { myContext } from '../CartContext/CartContext';
+
+
 
 
 
 export default function ItemDetail({productoList}) {
 
+  const { addItem } = useContext(myContext); 
+  const [initial,setInitial]= useState();
+
   function onAdd(auxInitial) {
-  
-    alert("Usted agrego "+ auxInitial +  " productos al carrito de compras.")
+    setInitial(auxInitial);
+    alert("Usted agrego "+ auxInitial +" "+ productoList.title + " al carrito de compras.")
+   
+    console.log('setinitial'+initial)
   
 }
 
@@ -43,14 +53,19 @@ export default function ItemDetail({productoList}) {
           </CardContent>
 
         <CardActions >      
-                <Grid container justifyContent="center">
-
-                <ItemCount stock ={productoList.stock} initial={1} onAdd={onAdd}/> 
+                <Grid container justifyContent="center" >
+                  
+                 
+                    <ItemCount stock ={productoList.stock} initial={1} onAdd={onAdd}/>
+                    <Button variant="outlined"  onClick={()=> addItem(productoList,initial)}>
+                      {/* <Link style={{textDecoration:"none", color:"success"}} to={'/cart'}> */}
+                              COMPRAR
+                      {/* </Link> */}
+                  </Button>    
+                   
+                
+                      
                 </Grid>
-                     
-              
-            
-          
         </CardActions>
       </Card>
 

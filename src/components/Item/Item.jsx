@@ -27,43 +27,39 @@ export default function Item({id, price , stock,  title, pictureURL,description}
      
      <Card sx={{ maxWidth: 500, margin:1,}}>
      <Link style={{textDecoration:"none", color:"black"}} to={'/item/'+id}>
-     <CardActionArea>
-      <CardMedia
-        component="img"
-        height="100"
-        image={pictureURL}
-        alt=""
-        />
-       
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-        {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-         ${price}
-        </Typography>
-        
-      </CardContent>
-      </CardActionArea>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              height="100"
+              image={pictureURL}
+              alt=""
+              />
+            
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+              {title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+              ${price}
+              </Typography>
+              
+            </CardContent>
+            </CardActionArea>
         </Link>
-      <CardActions>
-      
-      <Grid container>
-          <Grid item xs={12}>
-          
-          </Grid>
-          <Grid item xs={12} >    
-          <Box sx={{ '& > :not(style)': { m: 1 } }}> 
-            <Button variant="outlined" >
-            <Link style={{textDecoration:"none", color:"black"}} to={'/item/'+id}>
-                    DETALLES
-                    </Link>
-
-            </Button>
-            <ItemCount stock ={stock} initial={1} onAdd={onAdd}/> 
-            </Box>
-          </Grid>
-      </Grid>
+      <CardActions>      
+        <Grid container>          
+            <Grid item xs={12} >    
+                <Box sx={{ '& > :not(style)': { m: 1 } }}> 
+                  <Button variant="outlined" >
+                      <Link style={{textDecoration:"none", color:"primary"}} to={'/item/'+id}>
+                              DETALLES
+                      </Link>
+                  </Button>    
+                  <ItemCount stock ={stock} initial={1} onAdd={onAdd}/> 
+              </Box>
+            </Grid>
+               
+         </Grid>
       </CardActions>
     
     </Card>

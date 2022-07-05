@@ -10,7 +10,7 @@ export default function ItemList({productoList}) {
 
 
   return (
-    <Grid container spacing={1} padding={2} justifyContent="center">  
+    <Grid container spacing={1}  padding={2} justifyContent="center" >  
         <Grid container item xs={12} spacing={1} >
         {
         productoList.map((item)=>{
