@@ -9,7 +9,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { myContext } from '../CartContext/CartContext';
+import { myContext } from '../../CartContext/CartContext';
+
 
 
 

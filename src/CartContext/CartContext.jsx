@@ -34,8 +34,8 @@ function addItem(item,quantity){
       setCart(
         cart.map((producto) => {
         if(producto.id === item.id){
-          return { ...aux, quantity: aux.quantity + quantity, totalPrice: item.price * quantity};
-        }else return cart;
+          return { ...producto, quantity: aux.quantity + quantity, totalPrice: item.price * aux.quantity};
+        }else return producto;
 
       })
       );
