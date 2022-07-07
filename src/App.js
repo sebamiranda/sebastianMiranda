@@ -10,7 +10,7 @@ import CartContext from '../src/CartContext/CartContext';
 
 
 function App() {
-  let cantidad=15;
+  // let cantidad=15;
   let greeting='Proximamente nuestro catalogo de productos en linea...'
   let initial=15;
   let stock=15;
@@ -26,7 +26,7 @@ function App() {
       <CartContext>
             <header className="App-header">
             <BrowserRouter>
-              <NavBar cantidad={cantidad}></NavBar>
+              <NavBar></NavBar>
 
             
                   <Routes>

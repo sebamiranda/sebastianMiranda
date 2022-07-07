@@ -19,13 +19,16 @@ import { myContext } from '../../CartContext/CartContext';
 export default function ItemDetail({productoList}) {
 
   const { addItem } = useContext(myContext); 
+
   const [initial,setInitial]= useState();
 
   function onAdd(auxInitial) {
-    setInitial(auxInitial);
+    //setInitial(auxInitial);
+    console.log('auxinitial on add'+ auxInitial)
+    addItem(productoList,auxInitial);
     alert("Usted agrego "+ auxInitial +" "+ productoList.title + " al carrito de compras.")
    
-    console.log('setinitial'+initial)
+    console.log('setinitial on add'+initial)
   
 }
 
@@ -58,12 +61,11 @@ export default function ItemDetail({productoList}) {
                   
                  
                     <ItemCount stock ={productoList.stock} initial={1} onAdd={onAdd}/>
-                    <Button variant="outlined"  onClick={()=> addItem(productoList,initial)}>
-                      {/* <Link style={{textDecoration:"none", color:"success"}} to={'/cart'}> */}
+                       <Link style={{textDecoration:"none", color:"success"}} to={'/cart'}> 
+                    <Button variant="outlined"  >
                               COMPRAR
-                      {/* </Link> */}
                   </Button>    
-                   
+                    </Link>                    
                 
                       
                 </Grid>

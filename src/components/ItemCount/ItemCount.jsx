@@ -26,7 +26,7 @@ function sumar(){
     }
 }
 
-
+console.log('auxInitial item count'+ auxInitial);  
 
   return (
     <div>
@@ -61,14 +61,18 @@ function sumar(){
               </Fab>
               </Box>
           </Grid>
-          <Grid item xs={12} >    
+      
+          <Grid item xs={12} >  
+          
           <Box sx={{ '& > :not(style)': { m: 1 } }}> 
+          
             <Button variant="outlined" onClick={()=>onAdd(auxInitial)}>AGREGAR</Button>
             </Box>
           </Grid>
       </Grid>
        </CardActions> 
     </Card>
+    
     </div>
   )
 }

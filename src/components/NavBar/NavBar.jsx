@@ -18,10 +18,11 @@ import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
+
 const pages = ['Categorias', 'Descripcion', 'Novedades'];
 const settings = ['Perfil', 'Logout'];
 
-const ResponsiveAppBar = ({cantidad}) => {
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -50,12 +51,6 @@ const ResponsiveAppBar = ({cantidad}) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-
-
-
-
-
 
 
 
@@ -240,7 +235,7 @@ const ResponsiveAppBar = ({cantidad}) => {
             {/* ))} */}
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>  
-          <CartWidget cantidad={cantidad} />
+          <CartWidget />
           </Box>
           
           <Box sx={{ flexGrow: 0 }}>

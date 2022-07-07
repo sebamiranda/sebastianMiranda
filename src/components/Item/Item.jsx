@@ -17,11 +17,11 @@ import { Grid } from '@mui/material';
 
 export default function Item({id, price , stock,  title, pictureURL,description}) {
 
-  function onAdd(auxInitial) {
-      console.log( "auxinitial" + auxInitial)
-      alert("Usted agrego "+  auxInitial  + " productos al carrito de compras.")
+  // function onAdd(auxInitial) {
+  //     console.log( "auxinitial" + auxInitial)
+  //     alert("Usted agrego "+  auxInitial  + " productos al carrito de compras.")
     
-  }
+  // }
   return (
     <div>
      
@@ -55,7 +55,7 @@ export default function Item({id, price , stock,  title, pictureURL,description}
                               DETALLES
                       </Link>
                   </Button>    
-                  <ItemCount stock ={stock} initial={1} onAdd={onAdd}/> 
+                  {/* <ItemCount stock ={stock} initial={1} onAdd={onAdd}/>  */}
               </Box>
             </Grid>
                
