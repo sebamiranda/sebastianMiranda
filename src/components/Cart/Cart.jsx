@@ -10,14 +10,33 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+
 import DeleteIcon from '@mui/icons-material/Delete';
+
+
 
 export default function Cart() {
   const { cart, removeItem } = useContext(myContext);
+
+
+// function carroExiste(cart){
+//    if ( cart.indexOf() === 0){
+//     setAux(false)
+//    }else{
+//     setAux(true)
+//    }
+//  return aux
+// }
+// carroExiste(cart);
+// console.log(cart.length)
   return (
-    <div >
-    <TableContainer component={Paper} sx={{ margin:3}}>
+    <>
+    <div>
+      { cart.length > 0 ?
+               
+<TableContainer component={Paper} sx={{ margin:3}}>
       <Table sx={{ minWidth: 100 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -40,9 +59,9 @@ export default function Cart() {
                 <Avatar alt="Remy Sharp" src={row.imagen} />
                 
               </TableCell>
-              <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.quantity}</TableCell>
-              <TableCell align="right">{row.totalPrice}</TableCell>
+              <TableCell align="right">${row.price}</TableCell>
+              <TableCell align="right">{row.quantity}u.</TableCell>
+              <TableCell align="right">${row.totalPrice}</TableCell>
               <TableCell align="right">
                   <Button variant="outlined" color="error" href="#outlined-buttons" onClick={()=>removeItem(row.id)}>
                       <DeleteIcon/>
@@ -53,7 +72,31 @@ export default function Cart() {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+          </TableContainer> :
+          <>
+           <h3> Aun no tiene productos en el carrito de compras</h3>
+        <Link style={{textDecoration:"none"}} to={'/'}> 
+                        <Button   variant="contained" color="success"  >
+                                VOLVER
+                        </Button>    
+                    </Link>        
+            
+
+              
+          
+
+                 
+
+          
+         
+          
+          
+          
+        </>
+         
+
+      } 
     </div>
+    </>
   )
 }

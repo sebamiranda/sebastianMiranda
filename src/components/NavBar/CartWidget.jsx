@@ -1,13 +1,13 @@
 //ts@check
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
-import { ShoppingCartRounded } from '@mui/icons-material';
 import './CartWidget.css';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { myContext } from '../../CartContext/CartContext';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CartWidget() {
 
@@ -26,11 +26,18 @@ export default function CartWidget() {
     
   return (
     <div>
-      <IconButton aria-label="cart">
-      <StyledBadge badgeContent={totalProductosCart(cart)} >
-        <ShoppingCartIcon />
-      </StyledBadge>
-    </IconButton>
+    <Link style={{textDecoration:"none", color:"success"}} to={'/cart'}> 
+            <IconButton aria-label="cart">
+              <StyledBadge badgeContent={totalProductosCart(cart)} >
+                <ShoppingCartIcon />
+              </StyledBadge>
+          </IconButton>
+     </Link>         
     </div>
+
+
+
+
+
   )
 }

@@ -60,15 +60,16 @@ export default function ItemDetail({productoList}) {
                 <Grid container justifyContent="center" >
                   
                  
-                    <ItemCount stock ={productoList.stock} initial={1} onAdd={onAdd}/>
-                       <Link style={{textDecoration:"none", color:"success"}} to={'/cart'}> 
-                    <Button variant="outlined"  >
-                              COMPRAR
-                  </Button>    
-                    </Link>                    
-                
-                      
+                    <ItemCount  stock ={productoList.stock} initial={1} onAdd={onAdd}/>
+                    
+                     <Link style={{textDecoration:"none", color:"success"}} to={'/cart'}> 
+                        <Button   variant="outlined"  >
+                                  FINALIZAR COMPRA
+                        </Button>    
+                    </Link>                 
+                  
                 </Grid>
+                
         </CardActions>
       </Card>
 
