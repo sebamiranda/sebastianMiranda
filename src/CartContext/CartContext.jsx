@@ -7,7 +7,7 @@ export const myContext = createContext(null);
 export default function CartContext({children}) {
 
   const [ cart, setCart ] = useState([]);
-  const [ existe, setExiste ] = useState(false);
+  
   
 
 function addItem(item,quantity){

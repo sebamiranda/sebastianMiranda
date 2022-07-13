@@ -15,7 +15,7 @@ export default function ItemList({productoList}) {
         {
         productoList.map((item)=>{
            //console.log({item})
-         return(<Item key= {item.id} id={item.id} title={item.title} price={item.price} pictureURL={item.pictureURL} stock={item.stock} description={item.description}  />)
+         return(<Item key= {item.id} id={item.id} title={item.title} price={item.price} pictureURL={item.pictureURL} stock={item.stock} description={item.description} category ={item.category} />)
 
         })
         
