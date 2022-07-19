@@ -36,14 +36,13 @@ export default function ItemDetail({productoList}) {
   return (
 
  <div>
-    <Card sx={{ maxWidth: 700, margin:1 }}>
+    <Card sx={{ maxWidth: 300, margin:1 }}>
           <CardMedia
             component="img"
             height="200"
             image={productoList.pictureURL}
             alt=""
           />
-
           <CardContent>
                 <Typography variant="h3" gutterBottom component="div">
                     {productoList.title}
@@ -51,6 +50,12 @@ export default function ItemDetail({productoList}) {
                 <Typography variant="subtitle2" gutterBottom component="div">
                   {productoList.description}
                 </Typography>
+                
+          </CardContent>
+   </Card>
+   <Card sx={{ maxWidth: 300, margin:1 }}>
+   <CardContent>
+                
                 <Typography variant="h5" gutterBottom component="div">
                     Precio: $ {productoList.price}
                 </Typography>  

@@ -13,13 +13,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
 
-const pages = ['Categorias', 'Descripcion', 'Novedades'];
+
 const settings = ['Perfil', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -58,7 +58,7 @@ const ResponsiveAppBar = () => {
     <AppBar position="static" sx={{ bgcolor: "#4caf50" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <FingerprintIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          
           <Typography
             variant="h6"
             noWrap
@@ -74,7 +74,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            INICIO
+          FERRETERIA
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -107,7 +107,7 @@ const ResponsiveAppBar = () => {
               }}
             >
                {/* // {pages.map((page) => ( */}
-                <MenuItem  onClick={handleCloseNavMenu}>
+                {/* <MenuItem  onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
 
                     <Link style={{textDecoration:"none", color:"black"}} to={'/'}>
@@ -116,7 +116,7 @@ const ResponsiveAppBar = () => {
 
 
                   </Typography>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem  onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
 
@@ -150,7 +150,7 @@ const ResponsiveAppBar = () => {
              {/* // ))} */}
             </Menu>
           </Box>
-          <FingerprintIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <FingerprintIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -167,7 +167,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            INICIO
+           FERRETERIA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {/* {pages.map((page) => ( */}

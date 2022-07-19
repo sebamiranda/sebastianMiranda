@@ -7,6 +7,16 @@ export const myContext = createContext(null);
 export default function CartContext({children}) {
 
   const [ cart, setCart ] = useState([]);
+  //   () => {
+  //     try{
+  //       const productoStorage = localStorage.getItem('cart')
+  //       return productoStorage ? JSON.parse(productoStorage):[]
+      
+  //     }catch{
+  //       return [];
+  //     }
+  //   }
+  // );
   
   
 
@@ -41,21 +51,25 @@ const productCart = {
 
       })
       );
-      
+     
     }else{    
-     setCart([...cart, productCart]);  
+     setCart([...cart, productCart]);      
 
     } 
+   // localStorage.setItem('cart', JSON.stringify(cart));
+    
 }
 
 function removeItem (itemId){
 //eliminar un item del cart usando el id
 const cartFilter = cart.filter( (producto) => producto.id !== itemId);
 setCart(cartFilter); 
+localStorage.setItem('cart', JSON.stringify(cartFilter));
 }
 
 function clear(){
     setCart([]);
+    //localStorage.setItem('cart', JSON.stringify(cart));
 
 }
 
@@ -73,12 +87,15 @@ function totalProductosCart(cart){
       return total;
  }
 
-
+ function totalCart(cart){ 
+  const total = cart.reduce((prev, next) => prev + next.totalPrice, 0);
+  return total;
+}
 
 
   return (
 <>
-    <myContext.Provider value={{cart, addItem, removeItem, clear, isInCart,totalProductosCart }}>{children}</myContext.Provider>
+    <myContext.Provider value={{cart, addItem, removeItem, clear, isInCart,totalProductosCart, totalCart }}>{children}</myContext.Provider>
 </>
   )
 }

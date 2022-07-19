@@ -24,8 +24,8 @@ export default function Item({id, price , stock,  title, pictureURL,description}
   // }
   return (
     <div>
-     
-     <Card sx={{ maxWidth: 500, margin:1,}}>
+    
+     <Card sx={{ maxWidth: 150, margin:1}}>
      <Link style={{textDecoration:"none", color:"black"}} to={'/item/'+id}>
           <CardActionArea>
             <CardMedia
