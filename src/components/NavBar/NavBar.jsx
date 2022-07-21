@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-import FingerprintIcon from '@mui/icons-material/Fingerprint';
+
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 

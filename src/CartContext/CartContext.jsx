@@ -31,7 +31,6 @@ const productCart = {
       totalPrice: item.price * quantity,
     };
     
-   // console.log('creo product cart' + JSON.stringify(productCart))
    
    const aux = cart.find((elemento) => elemento.id === item.id);
  
@@ -64,7 +63,7 @@ function removeItem (itemId){
 //eliminar un item del cart usando el id
 const cartFilter = cart.filter( (producto) => producto.id !== itemId);
 setCart(cartFilter); 
-localStorage.setItem('cart', JSON.stringify(cartFilter));
+// localStorage.setItem('cart', JSON.stringify(cartFilter));
 }
 
 function clear(){

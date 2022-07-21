@@ -35,14 +35,24 @@ export default function ItemDetail({productoList}) {
 
   return (
 
- <div>
-    <Card sx={{ maxWidth: 300, margin:1 }}>
+ <Grid sx={{ flexGrow: 1 }} container  justifyContent="center">
+  <Grid item xs={12} md={4} justifyContent="center">
+    <Card variant="outlined">
           <CardMedia
             component="img"
             height="200"
             image={productoList.pictureURL}
             alt=""
           />
+          <CardContent>
+               
+                
+          </CardContent>
+   </Card>
+   </Grid>
+   <Grid item xs={12} md={4} justifyContent="center">
+    <Card variant="outlined">
+         
           <CardContent>
                 <Typography variant="h3" gutterBottom component="div">
                     {productoList.title}
@@ -53,15 +63,16 @@ export default function ItemDetail({productoList}) {
                 
           </CardContent>
    </Card>
-   <Card sx={{ maxWidth: 300, margin:1 }}>
-   <CardContent>
-                
+   </Grid>
+   <Grid item xs={12} md={4}>
+   <Card variant="outlined">
+          <CardContent>
                 <Typography variant="h5" gutterBottom component="div">
                     Precio: $ {productoList.price}
                 </Typography>  
           </CardContent>
 
-        <CardActions >      
+          <CardActions >      
                 <Grid container justifyContent="center" >
                   
                  
@@ -71,13 +82,12 @@ export default function ItemDetail({productoList}) {
                         <Button   variant="outlined"  >
                                   FINALIZAR COMPRA
                         </Button>    
-                    </Link>                 
-                  
+                    </Link>               
                 </Grid>
-                
-        </CardActions>
-      </Card>
+          </CardActions>
+    </Card>
+    </Grid>
 
-  </div>
+  </Grid>
   )
 }

@@ -14,7 +14,7 @@ export default function CheckOut() {
     const [tel, setTel] = useState('');
     const [email, setEmail] = useState('');
     const [idCompra, setidCompra] = useState('')
-console.log('checkOut',cart);
+
 
 function handleClickComprar(){
     const pedido = {

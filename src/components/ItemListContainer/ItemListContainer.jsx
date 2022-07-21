@@ -13,7 +13,7 @@ export default function ItemListContainer({greeting}) {
   const [productoList, setProductoList] = useState([]);
   const [loading,setLoading] = useState(true);
   let { idCategory } = useParams();
-  console.log(idCategory)
+  
 
 useEffect(() => {
 
@@ -53,23 +53,15 @@ if (!idCategory){
  collectionRef = collection(db,'productos');
 }else{
    collectionRef = query(collection(db, 'productos'), where ('category', '==', idCategory));
-   console.log('entre else')
+  
 }
 
 
 getDocs(collectionRef).then((res)=>{
-
-    console.log('entre')
-    const auxArray = res.docs.map((item)=> ({...item.data(), id:item.id}));
-    console.log(auxArray)
+ 
+    const auxArray = res.docs.map((item)=> ({...item.data(), id:item.id}));  
     setProductoList(auxArray);
-
-    console.log('categoria',idCategory)
-    
-   
-   
-  
-  setLoading(false)
+    setLoading(false)
 
 })
 
@@ -85,7 +77,7 @@ getDocs(collectionRef).then((res)=>{
     
     {loading ?
           <Box sx={{ display: 'flex' }}>
-              < CircularProgress  color="inherit" />
+              < CircularProgress   />
           </Box> :
           <ItemList  productoList={productoList} />        
     }

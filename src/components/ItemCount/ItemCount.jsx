@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Card from '@mui/material/Card';
+
 import CardActions from '@mui/material/CardActions';
 
 import Button from '@mui/material/Button';
@@ -26,11 +26,11 @@ function sumar(){
     }
 }
 
-console.log('auxInitial item count'+ auxInitial);  
+
 
   return (
     <div>
-    <Card sx={{ maxWidth: 200 }}>
+    {/* <Card sx={{ maxWidth: 200 }}> */}
       {/* <CardMedia
         component="img"
         height="50"
@@ -71,7 +71,7 @@ console.log('auxInitial item count'+ auxInitial);
           </Grid>
       </Grid>
        </CardActions> 
-    </Card>
+    {/* </Card> */}
     
     </div>
   )

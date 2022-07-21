@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ItemCount from '../ItemCount/ItemCount';
+
 import { Link } from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
 
