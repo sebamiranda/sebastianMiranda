@@ -22,3 +22,5 @@ Fue implementada para el manejo de de rutas en nuestra aplicacion.
 Se uso debido a su tecnologia serverless y principalmente porque no realicemos backend.
 
 ## Deploy
+Para el deploy se uso FIREBASE : https://tienda-react-22.web.app/
+
