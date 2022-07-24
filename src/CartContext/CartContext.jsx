@@ -1,5 +1,5 @@
 
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 //crear contexto
 export const myContext = createContext(null);
@@ -7,17 +7,23 @@ export const myContext = createContext(null);
 export default function CartContext({children}) {
 
   const [ cart, setCart ] = useState([]);
-  //   () => {
-  //     try{
-  //       const productoStorage = localStorage.getItem('cart')
-  //       return productoStorage ? JSON.parse(productoStorage):[]
-      
-  //     }catch{
-  //       return [];
-  //     }
-  //   }
-  // );
+ 
+  //*set LocalStorage
+  useEffect(() => {
+    let getCart = localStorage.getItem('cart');
+    if(getCart != null){
+      setCart(JSON.parse(getCart));
+    }else{
+      setCart([]);
+    }
+  }, [])
+
+  //*update localStorage
+  useEffect(() => {
+    localStorage.setItem('cart',JSON.stringify(cart));
   
+   
+  }, [cart])
   
 
 function addItem(item,quantity){
@@ -54,21 +60,20 @@ const productCart = {
     }else{    
      setCart([...cart, productCart]);      
 
-    } 
-   // localStorage.setItem('cart', JSON.stringify(cart));
+    }   
     
 }
 
 function removeItem (itemId){
-//eliminar un item del cart usando el id
+
 const cartFilter = cart.filter( (producto) => producto.id !== itemId);
 setCart(cartFilter); 
-// localStorage.setItem('cart', JSON.stringify(cartFilter));
+
 }
 
 function clear(){
     setCart([]);
-    //localStorage.setItem('cart', JSON.stringify(cart));
+    
 
 }
 

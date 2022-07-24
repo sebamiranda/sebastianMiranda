@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { myContext } from '../CartContext/CartContext';
-import '../components/Cart/Cart.css'
+import '../components/Cart/Cart.css';
+
 
 export default function CheckOut() {
 
@@ -13,7 +14,10 @@ export default function CheckOut() {
     const [nombre, setNombre] = useState('');
     const [tel, setTel] = useState('');
     const [email, setEmail] = useState('');
+   
+    
     const [idCompra, setidCompra] = useState('')
+  
 
 
 function handleClickComprar(){
@@ -22,8 +26,14 @@ function handleClickComprar(){
         items:[ JSON.stringify(cart)   ],
         
     };
-    if(!nombre || !tel || !email) return  
+    if(!nombre || !tel || !email)  return 
 
+
+    
+
+
+  
+    
 const db = getFirestore();
 const collectionRef = collection(db,'pedidos');
 addDoc(collectionRef,pedido).then(({ id }) => setidCompra(id) );
@@ -42,7 +52,7 @@ function seguirComprando(){
       { idCompra ? 
       <div>
       <p> ID de compra : {idCompra}</p> 
-      <p>Nombre: {nombre}</p>
+      <p>Nombre: {nombre}</p>      
       <p>Telefono: {tel}</p>
       <p>Email: {email}</p>
       <p>Monto total : {totalCart(cart)}</p>
@@ -57,12 +67,14 @@ function seguirComprando(){
         <div>
      
         <h1> Complete con sus datos para finalizar el pedido:</h1>
-       <input onChange={(e) => setNombre(e.target.value)} type={'text'} placeholder={'Ingrese Nombre'}></input>
+       <input onChange={(e) => setNombre(e.target.value)} type={'text'} placeholder={'Ingrese Nombre'} ></input>
        <input onChange={(e) => setTel(e.target.value)} type={'tel'} placeholder={'Ingrese Telefono'}></input>
-       <input onChange={(e) => setEmail(e.target.value)} type={'email'} placeholder={'Ingrese Email'}></input>
+       <input onChange={(e) => setEmail(e.target.value)} type={'email'} placeholder={'Ingrese Email'}></input>      
+       
        <br/>
        <br/>
        <button onClick={handleClickComprar}>COMPRAR</button>
+      
        </div>
       }
     </div>
